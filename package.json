@@ -1,0 +1,25 @@
+{
+  "name": "dockswitcher",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Profiles for Mac dock items",
+  "main": "src/profiles.js",
+  "scripts": {
+    "start": "babel-node --presets env src/cli",
+    "compile": "babel --presets env -d compiled src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "dockSwitcher": "compiled/run.js"
+  },
+  "author": "Nate Higgins",
+  "dependencies": {
+    "fs-extra": "^6.0.0",
+    "sha1-file": "^1.0.0",
+    "babel-polyfill": "^6.26.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
