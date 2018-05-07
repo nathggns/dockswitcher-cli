@@ -1,4 +1,5 @@
 import { join } from 'path';
+
 const { env } = process;
 
 const TEST = false;
@@ -9,7 +10,7 @@ const DOCK_FILE_LOCATION = env.DOCK_FILE_LOCATION ||
 
 const ACTIVE_PROFILE_NAME_LOCATION = env.ACTIVE_PROFILE_NAME_LOCATION || join(PROFILE_LOCATION, 'profile');
 const VERBOSE = !!env.VERBOSE;
-const DOCK_KILL_WAIT_TIME = Number(env.DOCK_KILL_WAIT_TIME) || 5000;
+const DOCK_KILL_WAIT_TIME = Number(env.DOCK_KILL_WAIT_TIME) || 3000;
 
 const config = {
     PROFILE_LOCATION,

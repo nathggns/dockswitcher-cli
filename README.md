@@ -10,10 +10,10 @@ this tool, or at the very least, backup your setup.**
 ## Usage
 
 ```bash
-$ sudo dockSwitcher get # list the current active profile
-$ sudo dockSwitcher new newProfileName # clone the current profile into newProfileName. THIS DOES NOT ACTIVATE THE PROFILE
-$ sudo dockSwitcher activate profileName # activate a profile
+$ dockSwitcher get # list the current active profile
+$ dockSwitcher new newProfileName # clone the current profile into newProfileName. THIS DOES NOT ACTIVATE THE PROFILE
+$ dockSwitcher activate profileName # activate a profile
 
-$ sudo dockSwitcher verify # Verify that the macOS dock items matches the items specified in the active profile – mostly used for internal testing
-$ sudo dockSwitcher update # Update the current profile to match the macOS dock items – mostly used for internal testing
+$ dockSwitcher verify # Verify that the macOS dock items matches the items specified in the active profile – mostly used for internal testing
+$ dockSwitcher update # Update the current profile to match the macOS dock items – mostly used for internal testing
 ```

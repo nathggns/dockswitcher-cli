@@ -6,7 +6,7 @@ async function main() {
     const [ command, ...args ] = process.argv.slice(2);
     await init();
 
-    if (config.verbose) {
+    if (config.VERBOSE) {
         console.log('DockSwitcher debug info:');
         console.log('Using config', config);
         console.log('Active profile', await getActiveProfile());

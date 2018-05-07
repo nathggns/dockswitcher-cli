@@ -1,7 +1,6 @@
-import { exists, mkdir, copyFile } from 'fs-extra';
+import { copyFile, exists, mkdir } from 'fs-extra';
 import config from './config';
 import { createDefaultProfile, getActiveProfile } from './profiles';
-import { join } from 'path';
 
 export default async function init(
 ) {

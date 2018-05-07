@@ -1,6 +1,7 @@
-import { readFile, writeFile, exists, readdir, copyFile, readJson, writeJson } from 'fs-extra';
+import { copyFile, exists, readdir, readJson, writeJson } from 'fs-extra';
 import config from './config';
 import { join } from 'path';
+
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const sha1File = util.promisify(require('sha1-file'));
