@@ -3,7 +3,10 @@ import { activateProfile, cloneProfile, getActiveProfile, getProfiles, updatePro
 import config from './config';
 
 async function main() {
-    const [ command, ...args ] = process.argv.slice(2);
+    const [ command, ...rawArgs ] = process.argv.slice(2);
+    const args = rawArgs.filter(arg => !arg.startsWith('-'));
+    const switches = rawArgs.filter(arg => arg.startsWith('-'));
+
     await init();
 
     if (config.VERBOSE) {
@@ -14,7 +17,7 @@ async function main() {
 
     switch (command) {
         case 'activate':
-            await activateProfile(args[0]);
+            await activateProfile(args[0], switches.includes('-f'));
             break;
 
         case 'update':

@@ -93,7 +93,7 @@ async function killDock() {
     await new Promise(r => setTimeout(r, config.DOCK_KILL_WAIT_TIME));
 }
 
-export async function activateProfile(profileName) {
+export async function activateProfile(profileName, force = false) {
     const profiles = await getProfiles();
     const profile = profiles.find(({ name }) => name === profileName);
 
@@ -101,11 +101,13 @@ export async function activateProfile(profileName) {
         throw new Error(`Cannot find profile ${profileName}`);
     }
 
-    if (profile.active) {
-        throw new Error(`Profile ${profileName} already active`);
+    if (!force) {
+        if (profile.active) {
+            throw new Error(`Profile ${profileName} already active`);
+        }
+        await updateProfile();
     }
 
-    await updateProfile();
     await copyFile(profile.location, config.DOCK_FILE_LOCATION);
 
     if (!await verifyProfile(profile)) {
