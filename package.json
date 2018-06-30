@@ -1,7 +1,6 @@
 {
   "name": "dockswitcher",
-  "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Profiles for Mac dock items",
   "main": "src/profiles.js",
   "scripts": {
@@ -9,6 +8,8 @@
     "compile": "babel --presets env -d compiled src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "https://github.com/nathggns/dockSwitcher",
+  "homepage": "https://github.com/nathggns/dockSwitcher",
   "bin": {
     "dockSwitcher": "compiled/run.js"
   },
@@ -21,5 +22,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1"
+  },
+  "engines": {
+    "node": ">= 8"
   }
 }

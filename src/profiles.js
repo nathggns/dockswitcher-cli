@@ -93,16 +93,20 @@ export async function updateProfile(
     await backupProfile(profilePromise, false);
     await copyFile(config.DOCK_FILE_LOCATION, profile.location);
 
-    if (!await verifyProfile()) {
+    if (!await verifyProfile(profile, false)) {
         throw new Error(`Updating profile ${profile.name} failed`);
     }
 }
 
 export async function verifyProfile(
-    profilePromise = getActiveProfile()
+    profilePromise = getActiveProfile(),
+    kill = true
 ) {
     const profile = await profilePromise;
-    await killDock();
+    if (kill) {
+        await killDock();
+    }
+
     return await sha1File(config.DOCK_FILE_LOCATION) === await sha1File(profile.location);
 }
 

@@ -7,12 +7,19 @@ like ControlPlane, where you may want to different items in your dock based on d
 of macOS this may work with, or if it will even work at all. If your Dock setup is important to you, please do not use
 this tool, or at the very least, backup your setup.**
 
+## Install
+
+```bash
+$ yarn global add dockswitcher 
+```
+
 ## Usage
 
 ```bash
 $ dockSwitcher get # list the current active profile
 $ dockSwitcher new newProfileName # clone the current profile into newProfileName. THIS DOES NOT ACTIVATE THE PROFILE
 $ dockSwitcher activate profileName # activate a profile
+$ dockSwitcher backup # backup the current active profile 
 
 $ dockSwitcher verify # Verify that the macOS dock items matches the items specified in the active profile – mostly used for internal testing
 $ dockSwitcher update # Update the current profile to match the macOS dock items – mostly used for internal testing
