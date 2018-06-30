@@ -62,6 +62,24 @@ export async function cloneProfile(newProfileName, profilePromise = getActivePro
     await copyFile(profile.location, join(config.PROFILE_LOCATION, `${newProfileName}.plist`));
 }
 
+export async function backupProfile(
+    profilePromise = getActiveProfile(),
+    kill = true
+) {
+    const profile = await profilePromise;
+
+    if (!profile) {
+        throw new Error(`Cannot find profile to backup`);
+    }
+
+    if (kill) {
+        await killDock();
+    }
+
+    const backupName = `${new Date().getTime()}-${profile.name}.plist`;
+    await copyFile(profile.location, join(config.BACKUP_LOCATION, backupName));
+}
+
 export async function updateProfile(
     profilePromise = getActiveProfile()
 ) {
@@ -72,6 +90,7 @@ export async function updateProfile(
     }
 
     await killDock();
+    await backupProfile(profilePromise, false);
     await copyFile(config.DOCK_FILE_LOCATION, profile.location);
 
     if (!await verifyProfile()) {

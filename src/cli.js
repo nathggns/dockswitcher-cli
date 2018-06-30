@@ -1,5 +1,13 @@
 import init from './init';
-import { activateProfile, cloneProfile, getActiveProfile, getProfiles, updateProfile, verifyProfile } from './profiles';
+import {
+    activateProfile,
+    backupProfile,
+    cloneProfile,
+    getActiveProfile,
+    getProfiles,
+    updateProfile,
+    verifyProfile
+} from './profiles';
 import config from './config';
 
 async function main() {
@@ -31,6 +39,11 @@ async function main() {
 
         case 'list':
             console.log(await getProfiles());
+            break;
+
+        case 'backup':
+            await backupProfile();
+            console.log('Backed up');
             break;
 
         case 'get':
