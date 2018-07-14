@@ -80,6 +80,22 @@ export async function backupProfile(
     await copyFile(profile.location, join(config.BACKUP_LOCATION, backupName));
 }
 
+export async function restoreProfile(
+    profileName,
+    n = 0
+) {
+    const profiles = await getProfiles();
+    const profile = profiles.find(({ name }) => name === profileName);
+    const allBackups = await readdir(join(config.BACKUP_LOCATION));
+    const backups = allBackups.filter(name => name.includes(profileName)).reverse();
+
+    if (backups.length === 0 || !backups[n]) {
+        throw new Error(`Cannot restore backup for profile ${profileName}`);
+    }
+
+    await copyFile(join(config.BACKUP_LOCATION, backups[n]), profile.location);
+}
+
 export async function updateProfile(
     profilePromise = getActiveProfile()
 ) {

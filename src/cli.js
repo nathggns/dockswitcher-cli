@@ -4,7 +4,7 @@ import {
     backupProfile,
     cloneProfile,
     getActiveProfile,
-    getProfiles,
+    getProfiles, restoreProfile,
     updateProfile,
     verifyProfile
 } from './profiles';
@@ -26,6 +26,15 @@ async function main() {
     switch (command) {
         case 'activate':
             await activateProfile(args[0], switches.includes('-f'));
+            break;
+
+        case 'restore':
+            if (args.length === 1) {
+                await restoreProfile(args[0]);
+            } else {
+                await restoreProfile(args[0], parseInt(args[1]));
+            }
+            console.log('restored');
             break;
 
         case 'update':
@@ -50,12 +59,17 @@ async function main() {
             console.log(await getActiveProfile());
             break;
 
+        case 'current':
+            console.log((await getActiveProfile()).name);
+            break;
+
         case 'new':
             await cloneProfile(args[0]);
             break;
 
         default:
-            console.error('Usage: dockSwitcher [command]');
+            const command = process.argv[1].match(/\/([^\/]+)$/)[1];
+            console.error(`Usage: ${command} [command]`);
             process.exit(1);
     }
 }
