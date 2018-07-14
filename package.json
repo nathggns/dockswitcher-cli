@@ -1,6 +1,6 @@
 {
   "name": "dockswitcher",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "license": "MIT",
   "description": "Profiles for Mac dock items",
   "main": "src/profiles.js",
@@ -18,9 +18,9 @@
   },
   "author": "Nate Higgins",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "fs-extra": "^6.0.0",
-    "sha1-file": "^1.0.0",
-    "babel-polyfill": "^6.26.0"
+    "sha1-file": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
