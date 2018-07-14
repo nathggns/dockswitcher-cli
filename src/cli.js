@@ -50,7 +50,7 @@ async function main() {
             console.log(await getProfiles());
             break;
 
-        case 'list-jsoyn':
+        case 'list-json':
             console.log(JSON.stringify(await getProfiles()));
             break;
 
