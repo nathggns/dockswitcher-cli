@@ -1,13 +1,14 @@
 {
   "name": "dockswitcher",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "license": "MIT",
   "description": "Profiles for Mac dock items",
   "main": "src/profiles.js",
   "scripts": {
     "start": "babel-node --presets env src/cli",
     "compile": "babel --presets env -d compiled src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "yarn compile && yarn publish"
   },
   "repository": "https://github.com/nathggns/dockswitcher-cli",
   "homepage": "https://github.com/nathggns/dockswitcher-cli",

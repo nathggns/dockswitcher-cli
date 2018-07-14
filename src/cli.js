@@ -67,10 +67,11 @@ async function main() {
             await cloneProfile(args[0]);
             break;
 
-        default:
-            const command = process.argv[1].match(/\/([^\/]+)$/)[1];
-            console.error(`Usage: ${command} [command]`);
+        default: {
+            const usedCommand = process.argv[1].match(/\/([^\/]+)$/)[1];
+            console.error(`Usage: ${usedCommand} [command]`);
             process.exit(1);
+        }
     }
 }
 
